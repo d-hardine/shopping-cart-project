@@ -1,0 +1,12 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    gap: 30px;
+    color: rgb(108, 108, 108);
+}
+
+.welcome-image {
+    border-radius: 30px;
+}

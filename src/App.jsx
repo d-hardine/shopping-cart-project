@@ -1,17 +1,12 @@
-import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home'
-import Store from './components/Store'
 import './App.css'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
       <Navbar/>
-          <Routes>
-            <Route path="/"  element={<Home/>} />
-            <Route path="/store"  element={<Store/>} />
-          </Routes>
+      <Outlet />
     </>
   )
 }
