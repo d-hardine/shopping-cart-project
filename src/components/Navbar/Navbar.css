@@ -1,0 +1,17 @@
+nav {
+  background-color: #f2f4f7e0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-left {
+  display: flex;
+  gap: 30px;
+}
+
+a {
+  text-decoration: none;
+}
