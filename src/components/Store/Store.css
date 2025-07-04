@@ -1,4 +1,15 @@
 .items-container {
     display: grid;
-    grid-template-columns: repeat(50px);
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 30px;
+}
+
+.item-card {
+    padding: 30px;
+    background-color: #B1F0F7;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
