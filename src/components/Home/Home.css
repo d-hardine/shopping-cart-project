@@ -3,10 +3,22 @@
     flex-direction: column;
     align-items: center;
     padding: 60px;
-    gap: 30px;
+    gap: 50px;
     color: rgb(108, 108, 108);
 }
 
 .welcome-image {
     border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.bottom-welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F5F0CD;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    gap: 20px;
 }
