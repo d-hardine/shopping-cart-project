@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import LoadingSpinner from "./LoadingSpinner/LoadingSpinner"
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
 
 export default function ProductPage() {
 
