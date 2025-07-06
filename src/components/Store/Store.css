@@ -1,10 +1,10 @@
-.items-container {
+.products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 400px);
     gap: 30px;
 }
 
-.item-card {
+.product-card {
     padding: 30px;
     background-color: #B1F0F7;
     border-radius: 30px;
