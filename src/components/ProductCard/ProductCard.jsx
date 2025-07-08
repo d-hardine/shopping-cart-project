@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
+import './ProductCard.css'
 
 export default function ProductCard({product}) {
     const [quantity, setQuantity] = useState(1)
+    const [cart, setCart, checkId, setCheckId] = useOutletContext()
 
     function handleNonNumericPrevention(e) {
         if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97) {
@@ -24,10 +26,39 @@ export default function ProductCard({product}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(quantity)
+
+        if(!checkId.includes(product.id)) { //added new products to cart
+            const addedToCart = {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: quantity
+            }
+
+            setCheckId([...checkId, product.id])
+
+            setCart([
+                ...cart, addedToCart
+            ])
+            
+        }
+        else { //added existing products to cart
+            console.log('product is already added to cart')
+            const idCache = product.id
+
+            setCart(cart.map(item => {
+                if(item.id === idCache) {
+                    return {...item, quantity: item.quantity + quantity}
+                }
+                else
+                    return item
+            }))
+        }
+
         setQuantity(1)
         e.target.reset()
-    }    
+    }
 
     return (
         <>
@@ -45,6 +76,7 @@ export default function ProductCard({product}) {
                     <br />
                     <button type="submit">Add to Cart</button>
                 </form>
+                <button onClick={() => console.log(cart)}>console log</button>
             </div>
         </>
     )

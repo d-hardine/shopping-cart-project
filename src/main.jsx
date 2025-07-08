@@ -3,12 +3,11 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
-import Home from './components/Home/Home.jsx'
-import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
-import Store from './components/Store/Store.jsx'
-import About from './components/About.jsx'
-import ProductPage from './components/ProductPage/ProductPage.jsx'
-import AboutChild from './components/AboutChild.jsx'
+import Home from './pages/Home.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
+import Store from './pages/Store.jsx'
+import About from './pages/About.jsx'
+import ProductPage from './pages/ProductPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +20,6 @@ const router = createBrowserRouter([
       {path: '/store', element: <Store />},
       {path: '/product/:productId', element: <ProductPage />},
       {path: '/about', element: <About /> },
-      {path: '/about/aboutchild', element: <AboutChild />}
     ]
   },
 ])

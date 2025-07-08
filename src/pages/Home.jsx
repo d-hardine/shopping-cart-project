@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import homepageImage from '../../assets/homepage-image-resized.jpg'
+import homepageImage from '../assets/homepage-image-resized.jpg'
 import './Home.css'
 
 export default function Home() {

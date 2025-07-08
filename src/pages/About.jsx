@@ -1,13 +1,4 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-
 export default function About() {
-    const [count, setCount] = useState(0)
-
-    function handleClick() {
-        setCount(count + 1)
-    }
-
     return (
         <>
             <p>Why Shop With Us?</p>
@@ -21,9 +12,6 @@ export default function About() {
             </ul>
             <p>Start Exploring Now!</p>
             <p>Ready to find something amazing? Dive in and discover your new favorites. Happy shopping!</p>
-            <Link to="/about/aboutchild">To The Child Component</Link>
-            <div>count: {count}</div>
-            <button onClick={handleClick}>increment count above</button>
         </>
     )
 }

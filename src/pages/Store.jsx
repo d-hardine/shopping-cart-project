@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
-import ProductCard from "../ProductCard"
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
+import ProductCard from "../components/ProductCard/ProductCard"
 import './Store.css'
 
 export default function Store() {
