@@ -6,11 +6,12 @@ import { useState } from 'react'
 function App() {
     const [cart, setCart] = useState([])
     const [checkId, setCheckId] = useState([])
+    const [totalProducts, setTotalProducts] = useState(0)
 
     return (
         <>
-            <Navbar/>
-            <Outlet context={[cart, setCart, checkId, setCheckId]}/>
+            <Navbar totalProducts={totalProducts}/>
+            <Outlet context={[cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts]}/>
         </>
     )
 }

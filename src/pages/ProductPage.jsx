@@ -11,7 +11,7 @@ export default function ProductPage() {
 
     const { productId} = useParams()
 
-    const [cart, setCart] = useOutletContext()
+    const [cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts] = useOutletContext()
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${productId}`, {mode: 'cors'})
@@ -47,17 +47,44 @@ export default function ProductPage() {
     function handleSubmit(e) {
         e.preventDefault()
 
-        const addedToCart = {
-            id: product.id,
-            title: product.title,
-            price: product.price,
-            image: product.image,
-            quantity: quantity
+        if(!checkId.includes(product.id)) { //added new products to cart
+            const addedToCart = {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: quantity
+            }
+
+            setCheckId([...checkId, product.id])
+
+            setCart([
+                ...cart, addedToCart
+            ])
+        }
+        else { //added existing products to cart
+            console.log('product is already added to cart')
+            const idCache = product.id
+
+            setCart(cart.map(item => {
+                if(item.id === idCache) {
+                    return {...item, quantity: item.quantity + quantity}
+                }
+                else
+                    return item
+            }))
         }
 
-        setCart([
-            ...cart, addedToCart
-        ])
+        //cart notification handler
+        if(cart.length === 0) {
+            setTotalProducts(prev => prev + quantity)
+        }
+        else {
+            const prevTotalProducts = cart.reduce(function(accumulator, item) {
+                return accumulator + item.quantity
+            }, 0)
+            setTotalProducts(prevTotalProducts + quantity)
+        }
 
         setQuantity(1)
         e.target.reset()
@@ -69,7 +96,7 @@ export default function ProductPage() {
     return (
         product && (
             <>
-                <img src={product.image} alt={"placeholder text"} width={400} />
+                <img src={product.image} alt={"product-image"} width={400} />
                 <h1>{product.title}</h1>
                 <h2>${product.price}</h2>
                 <p>{product.description}</p>
