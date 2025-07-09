@@ -8,10 +8,12 @@ function App() {
     const [checkId, setCheckId] = useState([])
     const [totalProducts, setTotalProducts] = useState(0)
 
+    const sharedStates = [cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts]
+
     return (
         <>
             <Navbar totalProducts={totalProducts}/>
-            <Outlet context={[cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts]}/>
+            <Outlet context={sharedStates}/>
         </>
     )
 }

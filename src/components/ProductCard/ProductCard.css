@@ -7,3 +7,18 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    background: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.product-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

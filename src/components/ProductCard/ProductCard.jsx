@@ -74,9 +74,9 @@ export default function ProductCard({product}) {
         <>
             <div className="product-card">
                 <Link to={`/product/${product.id}`}>
-                    <img src={product.image} width={300} alt="product-image" />
+                    <img className="product-image" src={product.image} alt="product-image" loading="lazy" />
                 </Link>
-                <div>{product.title}</div>
+                <div className="product-title" title={product.title}>{product.title}</div>
                 <div>${product.price}</div>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="total-products"></label>
@@ -86,7 +86,6 @@ export default function ProductCard({product}) {
                     <br />
                     <button type="submit">Add to Cart</button>
                 </form>
-                <button onClick={() => console.log(cart)}>console log</button>
             </div>
         </>
     )

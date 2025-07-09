@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <>
+        <div className="about-page">
             <p>Why Shop With Us?</p>
             <ul>
                 <li>Wide Selection: Explore a diverse range of products across various categories.</li>
@@ -12,6 +12,6 @@ export default function About() {
             </ul>
             <p>Start Exploring Now!</p>
             <p>Ready to find something amazing? Dive in and discover your new favorites. Happy shopping!</p>
-        </>
+        </div>
     )
 }

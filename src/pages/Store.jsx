@@ -25,7 +25,8 @@ export default function Store() {
     if(error) return <p>A network error has encountered</p>
    
    return (
-    <>
+    <main className="store-page">
+        <h1>The Products</h1>
         <div className="products-container">
             {products && (
                 products.map((product) => (
@@ -33,6 +34,6 @@ export default function Store() {
                 ))
             )}
         </div>
-    </>
+    </main>
    )
 }

@@ -1,5 +1,10 @@
 .products-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 20px;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 80vw;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
