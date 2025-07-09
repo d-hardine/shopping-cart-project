@@ -108,7 +108,6 @@ export default function ProductPage() {
                     <br />
                     <button type="submit">Add to Cart</button>
                 </form>
-                <button onClick={() => console.log(cart)}>console log cart</button>
             </>
         )
     )

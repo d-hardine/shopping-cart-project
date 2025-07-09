@@ -43,7 +43,6 @@ export default function ProductCard({product}) {
             ])
         }
         else { //added existing products to cart
-            console.log('product is already added to cart')
             const idCache = product.id
 
             setCart(cart.map(item => {
@@ -77,7 +76,7 @@ export default function ProductCard({product}) {
                     <img className="product-image" src={product.image} alt="product-image" loading="lazy" />
                 </Link>
                 <div className="product-title" title={product.title}>{product.title}</div>
-                <div>${product.price}</div>
+                <div><b>${product.price.toFixed(2)}</b></div>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="total-products"></label>
                     <button type="button" onClick={handleDecrement}>-</button>
