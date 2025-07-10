@@ -6,13 +6,14 @@ import { useState } from 'react'
 function App() {
     const [cart, setCart] = useState([])
     const [checkId, setCheckId] = useState([])
-    const [totalProducts, setTotalProducts] = useState(0)
+    const [cartNotification, setCartNotification] = useState(0)
+    const [grandTotal, setGrandTotal] = useState(0)
 
-    const sharedStates = [cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts]
+    const sharedStates = [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal]
 
     return (
         <>
-            <Navbar totalProducts={totalProducts}/>
+            <Navbar cartNotification={cartNotification}/>
             <Outlet context={sharedStates}/>
         </>
     )

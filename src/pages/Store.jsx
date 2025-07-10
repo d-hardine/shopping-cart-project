@@ -26,7 +26,7 @@ export default function Store() {
    
    return (
     <main className="store-page">
-        <h1>The Products</h1>
+        <h1 align="center">The Products</h1>
         <div className="products-container">
             {products && (
                 products.map((product) => (

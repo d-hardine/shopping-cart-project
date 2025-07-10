@@ -1,3 +1,8 @@
+.store-page {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);

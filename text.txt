@@ -1,2 +1,4 @@
 https://rohan77700.github.io/Shopping-cart/
 https://github.com/rohan77700/Shopping-cart
+
+<button onClick={() => console.log(cart)}>console log</button>

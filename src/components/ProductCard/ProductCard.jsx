@@ -4,7 +4,7 @@ import './ProductCard.css'
 
 export default function ProductCard({product}) {
     const [quantity, setQuantity] = useState(1)
-    const [cart, setCart, checkId, setCheckId, totalProducts, setTotalProducts] = useOutletContext()
+    const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
 
     function handleNonNumericPrevention(e) {
         if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97) {
@@ -54,15 +54,23 @@ export default function ProductCard({product}) {
             }))
         }
 
-        //cart notification handler
+        //cart notification and grand total handler
         if(cart.length === 0) {
-            setTotalProducts(prev => prev + quantity)
+            setCartNotification(prev => prev + quantity) //for cart notification
+            setGrandTotal(prev => prev + (quantity * product.price)) //for grand total
         }
         else {
-            const prevTotalProducts = cart.reduce(function(accumulator, item) {
+            //for cart notification
+            const prevCartNotification = cart.reduce(function(accumulator, item) {
                 return accumulator + item.quantity
             }, 0)
-            setTotalProducts(prevTotalProducts + quantity)
+            setCartNotification(prevCartNotification + quantity)
+
+            //for grand total
+            const prevGrandTotal = cart.reduce(function(accumulator, item) {
+                return accumulator + (item.quantity * item.price)
+            }, 0)
+            setGrandTotal(Number(prevGrandTotal + (quantity * product.price)))
         }
 
         setQuantity(1)
