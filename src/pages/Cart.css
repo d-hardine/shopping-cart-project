@@ -43,11 +43,13 @@
     padding: 10px;
     border: 1px solid rgb(216, 215, 215);
     margin-top: -10px;
+    flex-shrink: 0;
 }
 
 .cart-item-left-info {
     display: flex;
     gap: 15px;
+    width: 70%;
 }
 
 .cart-item-right-info {

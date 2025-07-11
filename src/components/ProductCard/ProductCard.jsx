@@ -7,7 +7,7 @@ export default function ProductCard({product}) {
     const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
 
     function handleNonNumericPrevention(e) {
-        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97) {
+        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96) {
             if (e.key !== "Backspace") e.preventDefault();
         }
     }

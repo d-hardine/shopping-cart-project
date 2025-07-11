@@ -26,7 +26,7 @@ export function CartCard({item}) {
     }
 
     function handleNonNumericPrevention(e) {
-        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97 || e.keyCode > 105) {
+        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96 || e.keyCode > 105) {
             if (e.key !== "Backspace") e.preventDefault();
         }
     }
@@ -72,7 +72,7 @@ export function CartCard({item}) {
             <div key={item.id} className="cart-item">
                 <div className="cart-item-left-info">
                     <img src={item.image} alt="item-image" className="cart-item-image" />
-                    <div className="cart-item-title">{item.title}</div>
+                    <div className="cart-item-title" title={item.title}>{item.title}</div>
                 </div>
                 <div className="cart-item-right-info">
                     <div><b>${item.price.toFixed(2)}</b></div>

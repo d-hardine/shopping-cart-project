@@ -1,17 +1,39 @@
 nav {
-  background-color: #f2f4f7e0;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  font-size: 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #f2f4f7e0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    gap: 20px;
+    font-size: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    align-items: stretch;
+    height: 4rem;
 }
 
 .navbar-left {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
 }
 
-a {
-  text-decoration: none;
+.navbar-link {
+    text-decoration: none;
+    color: grey;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+}
+
+.navbar-link.active {
+    background-color: #555;
+    color: white;
+}
+
+.navbar-link:hover {
+    background-color: #777;
+    color: white;
+}
+
+.shopping-cart {
+    fill: white
 }
