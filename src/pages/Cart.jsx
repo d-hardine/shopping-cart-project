@@ -27,7 +27,8 @@ export default function Cart() {
                             <div>Total </div>
                             <div><b>${grandTotal.toFixed(2)}</b></div>
                         </div>
-                        <button>BUY</button>
+                        <br />  
+                        <button className="cart-buy-button">BUY</button>
                     </div>
                 </div>
             </div>

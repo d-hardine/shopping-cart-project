@@ -11,7 +11,7 @@ export default function Home() {
                 <h2>Discover Your Perfect Finds</h2>
                 <p>Step into a world of endless possibilities, where quality meets convenience. Whether you're searching for the latest trends, everyday essentials, or unique gifts, we've carefully curated a collection that we know you'll love.</p>                
                 <Link to="/store">
-                    <button>Shop Now</button>
+                    <button className='home-button'>Shop Now</button>
                 </Link>
             </div>
         </main>

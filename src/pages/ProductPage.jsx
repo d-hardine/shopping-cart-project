@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
 import { useOutletContext } from "react-router-dom"
+import './ProductPage.css'
 
 export default function ProductPage() {
     const [product, setProduct] = useState(null)
@@ -27,7 +28,7 @@ export default function ProductPage() {
     }, [])
 
     function handleNonNumericPrevention(e) {
-        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97) {
+        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96 || e.keyCode > 105) {
             if (e.key !== "Backspace") e.preventDefault();
         }
     }
@@ -102,21 +103,29 @@ export default function ProductPage() {
     if(error) return <p>A network error has encountered</p>
 
     return (
-        product && (
-            <>
-                <img src={product.image} alt={"product-image"} width={400} />
-                <h1>{product.title}</h1>
-                <h2>${product.price}</h2>
-                <p>{product.description}</p>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="total-products"></label>
-                    <button type="button" onClick={handleDecrement}>-</button>
-                    <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
-                    <button type="button" onClick={handleIncrement}>+</button>
-                    <br />
-                    <button type="submit">Add to Cart</button>
-                </form>
-            </>
-        )
+        <div className="product-page">
+            {
+                product && (
+                    <div className="product-page-info-container">
+                        <div className="product-info-left">
+                            <img className="product-info-image" src={product.image} alt={"product-image"} />
+                        </div>
+                        <div className="product-info-right">
+                            <h1>{product.title}</h1>
+                            <h2>${product.price}</h2>
+                            <p>{product.description}</p>
+                            <form onSubmit={handleSubmit}>
+                                <label htmlFor="total-products"></label>
+                                <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
+                                <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
+                                <button className='product-increment-button' type="button" onClick={handleIncrement}>+</button>
+                                <br /> <br />
+                                <button className="product-submit-button" type="submit">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                )
+            }
+        </div>
     )
 }

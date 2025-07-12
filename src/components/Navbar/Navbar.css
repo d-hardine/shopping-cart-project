@@ -7,7 +7,7 @@ nav {
     font-size: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     align-items: stretch;
-    height: 4rem;
+    height: 6rem;
 }
 
 .navbar-left {
@@ -21,12 +21,13 @@ nav {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: .5rem;
+    padding: 1rem;
 }
 
 .navbar-link.active {
     background-color: #555;
     color: white;
+    fill: white;
 }
 
 .navbar-link:hover {
@@ -34,6 +35,31 @@ nav {
     color: white;
 }
 
-.shopping-cart {
-    fill: white
+svg {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+svg > path {
+    fill: grey
+}
+
+.navbar-link.active > svg > path {
+    fill: white;
+}
+
+.navbar-link:hover > svg > path {
+    fill: white;
+}
+
+.notification-badge {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    font-size: 12px;
 }

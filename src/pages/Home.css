@@ -22,3 +22,19 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     gap: 20px;
 }
+
+.home-button {
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: #FADA7A;
+    font-weight: bold;
+    font-size: large;
+}
+
+.home-button:hover {
+    background-color: #c0940e98;
+    color: white;
+    cursor: pointer;
+}

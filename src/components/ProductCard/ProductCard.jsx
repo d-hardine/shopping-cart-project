@@ -7,7 +7,7 @@ export default function ProductCard({product}) {
     const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
 
     function handleNonNumericPrevention(e) {
-        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96) {
+        if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96 || e.keyCode > 105) {
             if (e.key !== "Backspace") e.preventDefault();
         }
     }
@@ -87,11 +87,11 @@ export default function ProductCard({product}) {
                 <div><b>${product.price.toFixed(2)}</b></div>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="total-products"></label>
-                    <button type="button" onClick={handleDecrement}>-</button>
+                    <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
                     <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
-                    <button type="button" onClick={handleIncrement}>+</button>
-                    <br />
-                    <button type="submit">Add to Cart</button>
+                    <button className="product-increment-button" type="button" onClick={handleIncrement}>+</button>
+                    <br /> <br />
+                    <button className="product-submit-button" type="submit">Add to Cart</button>
                 </form>
             </div>
         </>

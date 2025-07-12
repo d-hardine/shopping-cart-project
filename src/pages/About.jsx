@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom'
+import './About.css'
+import aboutShoppingImage from '../assets/about-shopping-image.png'
+
 export default function About() {
     return (
         <div className="about-page">
-            <p>Why Shop With Us?</p>
+            <h1>Why Shop With Us?</h1>
             <ul>
                 <li>Wide Selection: Explore a diverse range of products across various categories.</li>
                 <li>Quality You Can Trust: We partner with reputable brands and suppliers to ensure every item meets our high standards.</li>
@@ -10,8 +14,9 @@ export default function About() {
                 <li>Wide Selection: Explore a diverse range of products across various categories.</li>
                 <li>Wide Selection: Explore a diverse range of products across various categories.</li>
             </ul>
-            <p>Start Exploring Now!</p>
-            <p>Ready to find something amazing? Dive in and discover your new favorites. Happy shopping!</p>
+            <Link to="/store"><h2>Start Exploring Now!</h2></Link>
+            <p><i>Ready to find something amazing? Dive in and discover your new favorites. Happy shopping!</i></p>
+            <img src={aboutShoppingImage} alt="about-shopping-image" />
         </div>
     )
 }
