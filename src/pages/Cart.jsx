@@ -5,7 +5,11 @@ import { CartCard } from "../components/CartCard"
 export default function Cart() {
     const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
 
-    if(cart.length === 0) return (<div>Nothing added to cart.</div>)
+    if(cart.length === 0) return (
+        <div className="cart-empty-page">
+            <div className="cart-empty-message">Nothing added to cart.</div>
+        </div>
+    )
 
     return (
         <main className="cart-page">
