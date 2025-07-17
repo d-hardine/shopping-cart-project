@@ -17,7 +17,7 @@ export default function Navbar({cartNotification}) {
         <nav className="navbar">
             {isSideBarActive ? 
             <div className="sidebar">
-                <svg onClick={hideSideBar} align="right" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="grey"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                <svg className="close-button" onClick={hideSideBar} align="right" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="grey"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 <CustomLink to="/" type="sidebar"><b>Home</b></CustomLink>
                 <CustomLink to="/store" type="sidebar"><b>Store</b></CustomLink>
                 <CustomLink to="/about" type="sidebar"><b>About</b></CustomLink>

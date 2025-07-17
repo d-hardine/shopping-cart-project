@@ -41,7 +41,14 @@
 }
 
 @media(max-width: 800px) {
+    .home-page {
+        padding: 30px;
+    }
+
     .welcome-image {
-        width: 100%;
+        width: 100vw;
+        border-radius: 0;
+        height: 40vh;
+        object-fit: cover;
     }
 }

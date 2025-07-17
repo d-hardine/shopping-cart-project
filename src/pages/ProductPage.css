@@ -5,10 +5,10 @@
 
 .product-page-info-container {
     display: flex;
-    width: 70%;
+    max-width: 1000px;
     margin: auto;
     gap: 20px;
-    padding-top: 30px;
+    padding: 30px;
 }
 
 .product-info-image {
@@ -16,12 +16,21 @@
     padding: 30px;
     border-radius: 30px;
     width: 400px;
+    height: 400px;
+    object-fit: contain;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .product-info-right {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+.product-info-right-top, .product-info-right-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .product-decrement-button, .product-increment-button {
@@ -53,5 +62,13 @@
 @media(max-width: 800px) {
     .product-page-info-container {
         flex-direction: column;
-    }   
+        width: 90%;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .product-info-image {
+        width: 100vw;
+        border-radius: 0;
+    }
 }

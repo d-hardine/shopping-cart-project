@@ -86,10 +86,12 @@ export default function ProductCard({product}) {
                 <div className="product-title" title={product.title}>{product.title}</div>
                 <div><b>${product.price.toFixed(2)}</b></div>
                 <form onSubmit={handleSubmit}>
+                    <div className="quantity-control">
                     <label htmlFor="total-products"></label>
                     <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
                     <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
                     <button className="product-increment-button" type="button" onClick={handleIncrement}>+</button>
+                    </div>
                     <br /> <br />
                     <button className="product-submit-button" type="submit">Add to Cart</button>
                 </form>

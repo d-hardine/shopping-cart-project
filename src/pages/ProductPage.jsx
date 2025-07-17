@@ -111,14 +111,22 @@ export default function ProductPage() {
                             <img className="product-info-image" src={product.image} alt={"product-image"} />
                         </div>
                         <div className="product-info-right">
-                            <h1>{product.title}</h1>
+                            <div className="product-info-right-top">
+                                <h1>{product.title}</h1>
+                                <div>⭐{product.rating.rate} &#40;{product.rating.count} reviews&#41;</div>
+                            </div>
                             <h2>${product.price}</h2>
-                            <p>{product.description}</p>
+                            <div className="product-info-right-middle">
+                                <h3>Description</h3>
+                                <p>{product.description}</p>
+                            </div>
                             <form onSubmit={handleSubmit}>
+                                <div className="quantity-control">
                                 <label htmlFor="total-products"></label>
                                 <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
                                 <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
                                 <button className='product-increment-button' type="button" onClick={handleIncrement}>+</button>
+                                </div>
                                 <br /> <br />
                                 <button className="product-submit-button" type="submit">Add to Cart</button>
                             </form>
