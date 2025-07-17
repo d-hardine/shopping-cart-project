@@ -49,3 +49,9 @@
     background-color: #1176a1;
     cursor: pointer;
 }
+
+@media(max-width: 800px) {
+    .product-page-info-container {
+        flex-direction: column;
+    }   
+}

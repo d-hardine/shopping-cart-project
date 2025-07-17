@@ -10,6 +10,7 @@
 .welcome-image {
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 70%;
 }
 
 .bottom-welcome-container {
@@ -37,4 +38,10 @@
     background-color: #c0940e98;
     color: white;
     cursor: pointer;
+}
+
+@media(max-width: 800px) {
+    .welcome-image {
+        width: 100%;
+    }
 }
