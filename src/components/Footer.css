@@ -1,0 +1,15 @@
+footer {
+    background-color: rgb(116, 116, 116);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 10px;
+}
+
+.contact-footer {
+    display: flex;
+    gap: 10px;
+}

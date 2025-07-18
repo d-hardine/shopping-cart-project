@@ -47,33 +47,33 @@ export default function ProductPage() {
 
     function handleSubmit(e) {
         e.preventDefault()
-
-        if(!checkId.includes(product.id)) { //added new products to cart
-            const addedToCart = {
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                image: product.image,
-                quantity: quantity
-            }
-
-            setCheckId([...checkId, product.id])
-
-            setCart([
-                ...cart, addedToCart
-            ])
-        }
-        else { //added existing products to cart
-            console.log('product is already added to cart')
-            const idCache = product.id
-
-            setCart(cart.map(item => {
-                if(item.id === idCache) {
-                    return {...item, quantity: item.quantity + quantity}
+        if(quantity !== 0) { //if the inputted quantity is not zero
+            if(!checkId.includes(product.id)) { //added new products to cart
+                const addedToCart = {
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    image: product.image,
+                    quantity: quantity
                 }
-                else
-                    return item
-            }))
+
+                setCheckId([...checkId, product.id])
+
+                setCart([
+                    ...cart, addedToCart
+                ])
+            }
+            else { //added existing products to cart
+                const idCache = product.id
+
+                setCart(cart.map(item => {
+                    if(item.id === idCache) {
+                        return {...item, quantity: item.quantity + quantity}
+                    }
+                    else
+                        return item
+                }))
+            }
         }
 
         //cart notification and grand total handler
@@ -113,9 +113,9 @@ export default function ProductPage() {
                         <div className="product-info-right">
                             <div className="product-info-right-top">
                                 <h1>{product.title}</h1>
-                                <div>⭐{product.rating.rate} &#40;{product.rating.count} reviews&#41;</div>
+                                <div>⭐ {product.rating.rate} &#40;{product.rating.count} reviews&#41;</div>
                             </div>
-                            <h2>${product.price}</h2>
+                            <h2>${product.price.toFixed(2)}</h2>
                             <div className="product-info-right-middle">
                                 <h3>Description</h3>
                                 <p>{product.description}</p>

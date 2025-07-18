@@ -2,6 +2,7 @@ import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
+import Footer from './components/Footer'
 
 function App() {
     const [cart, setCart] = useState([])
@@ -15,6 +16,7 @@ function App() {
         <>
             <Navbar cartNotification={cartNotification}/>
             <Outlet context={sharedStates}/>
+            <Footer />
         </>
     )
 }

@@ -1,13 +1,16 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, Link } from "react-router-dom"
 import './Cart.css'
 import { CartCard } from "../components/CartCard"
 
 export default function Cart() {
-    const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
+    const [cart, setCart, checkId, setCheckId, setCartNotification, subTotal, setSubTotal] = useOutletContext()
 
     if(cart.length === 0) return (
         <div className="cart-empty-page">
             <div className="cart-empty-message">Nothing added to cart.</div>
+            <Link to="/store">
+                <button className="cart-empty-button">Shop Now</button>
+            </Link>
         </div>
     )
 
@@ -28,11 +31,17 @@ export default function Cart() {
                     </h2>
                     <div className="shopping-summary-content">
                         <div className="cart-total-container">
-                            <div>Total </div>
-                            <div><b>${grandTotal.toFixed(2)}</b></div>
+                            <div>Subtotal </div>
+                            <div className="cart-summary-numbers">${subTotal.toFixed(2)}</div>
+                            <div>Shipping</div>
+                            <div className="cart-summary-numbers">$14.99</div>
+                            <div>Taxes</div>
+                            <div className="cart-summary-numbers">${(subTotal * 0.075).toFixed(2)}</div>
+                            <div><b>Total</b></div>
+                            <div className="cart-summary-numbers"><b>${((subTotal * 0.075) + 14.99 + subTotal).toFixed(2)}</b></div>
                         </div>
                         <br />  
-                        <button className="cart-buy-button">BUY</button>
+                        <button className="cart-buy-button">CHECKOUT</button>
                     </div>
                 </div>
             </div>
