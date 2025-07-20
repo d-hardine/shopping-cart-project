@@ -31,10 +31,11 @@ export default function ProductPage() {
             .catch((error) => setError(error));
     }, [])
 
+    //timeout popup for 1 sec
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(false);
-        }, 2500);
+        }, 1000);
 
         return () => clearTimeout(timer);
     }, [showPopup]);
@@ -109,7 +110,7 @@ export default function ProductPage() {
 
         setQuantity(1)
 
-        //trigger popup if add to cart is clicked
+        //trigger popup if "add to cart" button is clicked
         if(e.target.id === 'buy-now')
             navigate('/cart')
         else

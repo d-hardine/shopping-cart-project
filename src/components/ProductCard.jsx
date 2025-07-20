@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { Link, useOutletContext } from "react-router-dom"
 import './ProductCard.css'
 
-export default function ProductCard({product}) {
+export default function ProductCard({product, showPopup, setShowPopup}) {
     const [cart, setCart, checkId, setCheckId, setCartNotification, subTotal, setSubTotal] = useOutletContext()
+
+    //timeout popup for 1 sec
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopup(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [showPopup]);
 
     function handleAddToCart() {
 
@@ -51,6 +61,8 @@ export default function ProductCard({product}) {
             }, 0)
             setSubTotal(Number(prevGrandTotal + (1 * product.price)))
         }
+
+        setShowPopup(true)
     }
 
     return (
@@ -61,6 +73,7 @@ export default function ProductCard({product}) {
                 </Link>
                 <div className="product-title" title={product.title}>{product.title}</div>
                 <div><b>${product.price.toFixed(2)}</b></div>
+                <div>⭐ {product.rating.rate} | {product.rating.count} sold</div>
                 <button className="product-card-add-button" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </>

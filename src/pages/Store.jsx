@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ProductCard from "../components/ProductCard"
+import AddedToCartPopup from "../components/AddedToCartPopup"
 import './Store.css'
 
 export default function Store() {
     const [products, setProducts] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [showPopup, setShowPopup] = useState(false)
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products', {mode: 'cors'})
@@ -30,10 +32,11 @@ export default function Store() {
         <div className="products-container">
             {products && (
                 products.map((product) => (
-                    <ProductCard product={product} key={product.id}/>
+                    <ProductCard product={product} showPopup={showPopup} setShowPopup={setShowPopup} key={product.id}/>
                 ))
             )}
         </div>
+        {showPopup && (<AddedToCartPopup />)}
     </main>
    )
 }
