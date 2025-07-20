@@ -16,7 +16,7 @@ export default function About() {
             </ul>
             <Link to="/store"><h2>Start Exploring Now!</h2></Link>
             <p><i>Ready to find something amazing? Dive in and discover your new favorites. Happy shopping!</i></p>
-            <img src={aboutShoppingImage} alt="about-shopping-image" />
+            <img className='about-image' src={aboutShoppingImage} alt="about-shopping-image" />
         </div>
     )
 }

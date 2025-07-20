@@ -1,9 +1,14 @@
 .about-page {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
+}
+
+@media(max-width: 650px) {
+    .about-image {
+        width: 100%;
+    }
 }
