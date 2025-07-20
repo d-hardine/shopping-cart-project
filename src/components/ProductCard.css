@@ -22,3 +22,17 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.product-card-add-button {
+    background-color: #81BFDA;
+    border: none;
+    color: white;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.product-card-add-button:hover {
+    background-color: #1176a1;
+    cursor: pointer;
+}

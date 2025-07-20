@@ -39,6 +39,28 @@
     justify-content: space-between;
 }
 
+.cart-decrement-button, .cart-increment-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #FADA7A;
+    color: #758CA3;
+    font-weight: bold;
+    font-size: large;
+}
+
+.cart-quantity-control {
+    display: flex;
+    gap: 10px;
+}
+
+.cart-delete-button {
+    background-color: #FADA7A;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+
 @media(max-width:900px) {
     .cart-item {
         width: 90vw;

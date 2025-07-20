@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
+import { useParams, useNavigate, Link } from "react-router-dom"
+import LoadingSpinner from "../components/LoadingSpinner"
 import { useOutletContext } from "react-router-dom"
 import './ProductPage.css'
+import AddedToCartPopup from "../components/AddedToCartPopup"
 
 export default function ProductPage() {
     const [product, setProduct] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const [quantity, setQuantity] = useState(1)
+    const [showPopup, setShowPopup] = useState(false)
 
-    const { productId} = useParams()
+    const { productId } = useParams()
 
-    const [cart, setCart, checkId, setCheckId, setCartNotification, grandTotal, setGrandTotal] = useOutletContext()
+    const navigate = useNavigate()
+
+    const [cart, setCart, checkId, setCheckId, setCartNotification, subTotal, setSubTotal] = useOutletContext()
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${productId}`, {mode: 'cors'})
@@ -26,6 +30,14 @@ export default function ProductPage() {
             .finally(() => setLoading(false))
             .catch((error) => setError(error));
     }, [])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopup(false);
+        }, 2500);
+
+        return () => clearTimeout(timer);
+    }, [showPopup]);
 
     function handleNonNumericPrevention(e) {
         if(e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 96 || e.keyCode > 105) {
@@ -79,7 +91,7 @@ export default function ProductPage() {
         //cart notification and grand total handler
         if(cart.length === 0) {
             setCartNotification(prev => prev + quantity) //for cart notification
-            setGrandTotal(prev => prev + (quantity * product.price)) //for grand total
+            setSubTotal(prev => prev + (quantity * product.price)) //for grand total
         }
         else {
             //for cart notification
@@ -92,11 +104,16 @@ export default function ProductPage() {
             const prevGrandTotal = cart.reduce(function(accumulator, item) {
                 return accumulator + (item.quantity * item.price)
             }, 0)
-            setGrandTotal(Number(prevGrandTotal + (quantity * product.price)))
+            setSubTotal(Number(prevGrandTotal + (quantity * product.price)))
         }
 
         setQuantity(1)
-        e.target.reset()
+
+        //trigger popup if add to cart is clicked
+        if(e.target.id === 'buy-now')
+            navigate('/cart')
+        else
+            setShowPopup(true)
     }
 
     if(loading) return <LoadingSpinner />
@@ -113,7 +130,7 @@ export default function ProductPage() {
                         <div className="product-info-right">
                             <div className="product-info-right-top">
                                 <h1>{product.title}</h1>
-                                <div>⭐ {product.rating.rate} &#40;{product.rating.count} reviews&#41;</div>
+                                <div>⭐ {product.rating.rate} &#40;{product.rating.count} sold&#41;</div>
                             </div>
                             <h2>${product.price.toFixed(2)}</h2>
                             <div className="product-info-right-middle">
@@ -121,19 +138,23 @@ export default function ProductPage() {
                                 <p>{product.description}</p>
                             </div>
                             <form onSubmit={handleSubmit}>
-                                <div className="quantity-control">
-                                <label htmlFor="total-products"></label>
-                                <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
-                                <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
-                                <button className='product-increment-button' type="button" onClick={handleIncrement}>+</button>
+                                <div className="product-quantity-control">
+                                    <label htmlFor="total-products"></label>
+                                    <button className="product-decrement-button" type="button" onClick={handleDecrement}>-</button>
+                                    <input type="tel" id="total-products" onKeyDown={handleNonNumericPrevention} min={1} value={quantity} onChange={handleChange}/>
+                                    <button className='product-increment-button' type="button" onClick={handleIncrement}>+</button>
                                 </div>
                                 <br /> <br />
-                                <button className="product-submit-button" type="submit">Add to Cart</button>
+                                <div className="product-button-container">
+                                    <button className="product-submit-button" id="buy-now" type="button" onClick={handleSubmit}>Buy Now</button>
+                                    <button className="product-submit-button" id="add-to-cart" type="submit">Add to Cart</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 )
             }
+            {showPopup && (<AddedToCartPopup />)}
         </div>
     )
 }

@@ -19,6 +19,7 @@
     height: 400px;
     object-fit: contain;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: white;
 }
 
 .product-info-right {
@@ -31,6 +32,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.product-quantity-control {
+    display: flex;
 }
 
 .product-decrement-button, .product-increment-button {
@@ -51,12 +56,17 @@
     color: white;
     font-weight: bold;
     font-size: large;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .product-decrement-button:hover, .product-increment-button:hover, .product-submit-button:hover {
     background-color: #1176a1;
     cursor: pointer;
+}
+
+.product-button-container {
+    display: flex;
+    gap: 40px;
 }
 
 @media(max-width: 800px) {

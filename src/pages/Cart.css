@@ -66,28 +66,6 @@
     text-align: end;
 }
 
-.cart-decrement-button, .cart-increment-button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: #FADA7A;
-    color: #758CA3;
-    font-weight: bold;
-    font-size: large;
-}
-
-.quantity-control {
-    display: flex;
-    gap: 10px;
-}
-
-.cart-delete-button {
-    background-color: #FADA7A;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-}
-
 .cart-buy-button {
     background-color: #FADA7A;
     color: #758CA3;
